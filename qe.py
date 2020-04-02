@@ -58,3 +58,10 @@ class QE:
                 new_kalimat.append(kata)
         return " ".join(new_kalimat)
 
+    def delete_corpus(self):
+        dict_ = {}
+        self.corpus = {}
+        save(dict_, "sinonim_kateglo.json")
+        print("corpus dihapus", len(dict_))
+
+
