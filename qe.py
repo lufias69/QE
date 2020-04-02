@@ -47,7 +47,7 @@ class QE:
 
     def qe_process(self, kunci_jawaban, jawaban):
         self.corpus = reverser_all(find_sinonim_kalimat(kunci_jawaban))
-
+    #ds
         new_kalimat = list()
         for kata in jawaban.split():
             if kata in kunci_jawaban.split():
