@@ -16,11 +16,13 @@ dict_ = get_data('sinonim_kateglo.json')
 
 def find_sinonim_kata(cek):
     try:
-        list_objek = requests.get('http://kateglo.com/api.php?format=json&phrase='+str(cek)).json()['kateglo']['all_relation']
+        list_objek = requests.get('http://kateglo.com/api.php?format=json&phrase='+str(cek)).json()['kateglo']['relation']['s']
         sinonim_list = list()
-        for i in list_objek:
-            if i['rel_type_name'] == 'Sinonim':
+        for _, i in list_objek.items():
+            try:
                 sinonim_list.append(i['related_phrase'])
+            except:
+                pass
         dict_sinonim_kata = {cek:sinonim_list}
     except:
         dict_sinonim_kata = {cek:[]}
